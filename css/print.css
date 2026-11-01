@@ -36,8 +36,12 @@ body { font-size: 9pt; -webkit-print-color-adjust: exact; print-color-adjust: ex
 .cell-id { font-size: 7.5pt; }
 .cell-status { font-size: 7pt; padding: 0 1.2mm; color: #000 !important; background: none !important; border: 0.5pt solid #000; }
 .cell.is-unpaid .cell-status { background: #000 !important; color: #fff !important; }
-.cell-owner { font-size: 8pt; }
-.cell-meta, .cell-date { font-size: 6.8pt; color: #333; }
+.cell-owner { font-size: 8pt; white-space: nowrap; }
+/* 列印時每格三行：戶號＋狀態／姓名／坪數金額（省略日期以維持單頁） */
+.cell { overflow: hidden; }
+.cell-meta { font-size: 6.6pt; color: #333; white-space: nowrap; }
+.cell-date { display: none; }
+.summary, .layout, .signatures { margin-right: 0.5pt; }
 
 .list { font-size: 8pt; }
 .list th, .list td { padding: 0.9mm 1mm; border: 0.5pt solid #000; color: #000; }
