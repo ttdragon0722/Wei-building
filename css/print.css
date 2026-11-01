@@ -1,0 +1,54 @@
+/* A4 直式列印：左側樓層總表、右側未繳名單，一頁完成 */
+@page { size: A4 portrait; margin: 10mm 10mm 12mm; }
+
+html, body { background: #fff !important; color: #000; }
+body { font-size: 9pt; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+
+.no-print, .toast { display: none !important; }
+.page { max-width: none; padding: 0; margin: 0; }
+
+.print-header { display: block; margin-bottom: 3mm; border-bottom: 1.5pt solid #000; padding-bottom: 2mm; }
+.print-header h2 { margin: 0; font-size: 15pt; text-align: center; letter-spacing: 1pt; }
+.print-meta { display: flex; justify-content: space-between; font-size: 8.5pt; margin-top: 1mm; }
+
+.summary { grid-template-columns: repeat(6, 1fr); gap: 0; margin-bottom: 3mm; border: 0.75pt solid #000; }
+.stat { border: 0; border-radius: 0; padding: 1.2mm 2mm; background: #fff; }
+.stat + .stat { border-left: 0.75pt solid #000; }
+.stat-label { font-size: 7.5pt; color: #333; }
+.stat-value { font-size: 11pt; color: #000 !important; }
+.rate-track { display: none; }
+
+.layout { display: grid; grid-template-columns: 62% 1fr; gap: 3mm; }
+.panel { border: 0; padding: 0; border-radius: 0; background: #fff; }
+.panel-title { font-size: 10pt; margin: 0 0 1.5mm; }
+.count { color: #000; }
+
+.grid { border-collapse: collapse; border-spacing: 0; margin: 0; width: 100%; }
+.grid th, .grid td { border: 0.5pt solid #000; }
+.grid thead th { font-size: 8pt; color: #000; padding: 0.8mm; background: #eee; }
+.grid thead th:first-child, .floor-label { width: 9mm; }
+.floor-label { text-align: center; color: #000; font-weight: 700; font-size: 8.5pt; padding: 0; }
+.cell {
+  border: 0; border-radius: 0; padding: 0.8mm 1.2mm;
+  background: #fff !important; opacity: 1 !important;
+  font-size: 7.5pt; line-height: 1.25;
+}
+.cell-id { font-size: 7.5pt; }
+.cell-status { font-size: 7pt; padding: 0 1.2mm; color: #000 !important; background: none !important; border: 0.5pt solid #000; }
+.cell.is-unpaid .cell-status { background: #000 !important; color: #fff !important; }
+.cell-owner { font-size: 8pt; }
+.cell-meta, .cell-date { font-size: 6.8pt; color: #333; }
+
+.list { font-size: 8pt; }
+.list th, .list td { padding: 0.9mm 1mm; border: 0.5pt solid #000; color: #000; }
+.list th { background: #eee; font-size: 7.5pt; }
+.list .note-cell { width: 18%; }
+.empty { color: #000; }
+
+.signatures {
+  display: flex; justify-content: space-between; gap: 6mm;
+  margin-top: 6mm; font-size: 9.5pt;
+}
+.signatures div { flex: 1; border-bottom: 0.75pt solid #000; padding-bottom: 6mm; }
+
+tr, .cell { break-inside: avoid; }

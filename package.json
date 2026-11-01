@@ -1,0 +1,9 @@
+{
+  "name": "wei-building",
+  "version": "0.1.0",
+  "private": true,
+  "description": "大樓管理費繳費統計工具（純前端 DEMO）",
+  "scripts": {
+    "test": "node --test tests/stats.test.js"
+  }
+}
